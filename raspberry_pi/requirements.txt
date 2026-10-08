@@ -7,7 +7,7 @@ pyserial==3.5
 paho-mqtt==1.6.1
 
 # 数据处理
-numpy==1.21.0
+numpy==1.22.0
 
 # JSON处理 (Python内置，但列出以说明)
 # json - 内置模块
