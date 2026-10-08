@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="robot_v0">
+  <compiler angle="radian" meshdir="../../robot_v0/meshes" />
+  <asset>
+    <mesh name="base_link" file="base_link.STL" />
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" rgba="0.92 0.9 0.86 1.0" pos="0 0 -0.5" friction="1.0 0.02 0.001" condim="6" solref="0.02 1" solimp="0.9 0.95 0.01" contype="1" conaffinity="1" />
+    <body name="base_link" pos="0 0 0.3">
+      <freejoint name="base_freejoint" />
+      <inertial pos="-0.00947723458007864 0.0105882872053558 0.000698429393609694" mass="1.51773502445456" diaginertia="0.0259567475848409 0.0323962555887501 0.0323879403867107" />
+      <geom type="mesh" mesh="base_link" rgba="0.3 0.35 0.85 0.95" friction="1.0 0.02 0.001" condim="6" solref="0.02 1" solimp="0.9 0.95 0.01" contype="1" conaffinity="1" />
+    </body>
+  </worldbody>
+  <option timestep="0.001" gravity="0 0 -9.81" iterations="100" tolerance="1e-6" solver="Newton" integrator="implicitfast" cone="elliptic" />
+</mujoco>

@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "D6SR: Mechanically Decoupled Six-Axis Spherical Rolling Robot"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/CybDing/D6SR"
+authors:
+  - given-names: Leqi
+    family-names: Ding
+    affiliation: "Xi'an Jiaotong University"
+  - given-names: Xijian
+    family-names: Deng
+    affiliation: "Xi'an Jiaotong University"
+  - given-names: Jiayi
+    family-names: Chen
+    affiliation: "Xi'an Jiaotong University"
+  - given-names: Jin
+    family-names: Yang
+    affiliation: "Xi'an Jiaotong University"
+  - given-names: Ping
+    family-names: Wei
+    affiliation: "Xi'an Jiaotong University"
+    email: pingwei@xjtu.edu.cn
+preferred-citation:
+  type: conference-paper
+  title: "Design and Control of D6SR: A Mechanically Decoupled Six-Axis Spherical Rolling Robot for Stable Propeller-Driven Rolling"
+  authors:
+    - given-names: Leqi
+      family-names: Ding
+    - given-names: Xijian
+      family-names: Deng
+    - given-names: Jiayi
+      family-names: Chen
+    - given-names: Jin
+      family-names: Yang
+    - given-names: Ping
+      family-names: Wei
+  collection-title: "2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
+  publisher:
+    name: IEEE
+  year: 2026

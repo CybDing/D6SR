@@ -1,0 +1,6 @@
+{
+  "_comment": "Per-axis PID re-tune (coordinate descent, objective = total attitude RMS on rough-drive) for the realistic plant in realistic_config.json. Committed cost 91.4 -> tuned 2.7. See docs/review/inertia_fair_comparison_results.md.",
+  "roll":  {"outer_kp": 1.28, "inner_kp": 0.004,     "inner_kd": 0.0005},
+  "pitch": {"outer_kp": 0.64, "inner_kp": 0.002,     "inner_kd": 0.0003535},
+  "yaw":   {"outer_kp": 1.28, "inner_kp": 0.0045248, "inner_kd": 0.0002}
+}

@@ -1,0 +1,103 @@
+# =============================================================================
+# ROBOT PHYSICS CONFIGURATION
+# =============================================================================
+# Modify values here and run: python run_simulation.py --regenerate
+# to apply changes to the MJCF model.
+# =============================================================================
+
+# Simulation settings
+simulation:
+  timestep: 0.001          # Simulation timestep (seconds)
+  gravity: [0, 0, -9.81]   # Gravity vector (m/s^2)
+  initial_height: 0.3      # Robot spawn height above ground (m)
+
+# Solver settings (affects contact stability)
+solver:
+  iterations: 100          # Number of solver iterations
+  tolerance: 1e-6          # Solver tolerance
+  solver: Newton           # Solver type
+  integrator: implicitfast # More stable for stiff contact
+  cone: elliptic           # Smoother friction cone
+
+# Ground plane settings
+ground:
+  position: [0, 0, -0.5]   # Ground plane position
+  friction: [1.0, 0.02, 0.001]  # [tangent, torsional, rolling] friction
+  condim: 6                # Enable torsional + rolling friction
+  solref: [0.02, 1]        # Contact softness — timeconst must be >= 5*timestep
+  solimp: [0.9, 0.95, 0.01]   # Contact impedance — width=0.01 prevents bouncing
+  rgba: [0.92, 0.90, 0.86, 1.0]  # Warm light ground color
+
+# Joint physics parameters
+joints:
+  # Default values applied to all joints (joint1, joint2, joint3)
+  # For spherical robot: LOW values allow inner mechanism to rotate freely
+  default:
+    damping: 0.0005         # Slightly lower to allow visible oscillation
+    frictionloss: 0.0002   # Reduce static friction to avoid immediate settling
+    armature: 0.0003       # Keep some inertia to smooth motion
+    
+  # Per-joint overrides (uncomment to customize)
+  # joint1:
+  #   damping: 0.01
+  # joint2:
+  #   damping: 0.01
+  # joint3:
+  #   damping: 0.01
+
+# Outer shell (Link3) contact - this contacts the ground
+outer_shell:
+  friction: [1.0, 0.02, 0.001]  # [tangent, torsional, rolling]
+  condim: 6                # Enable torsional + rolling friction
+  solref: [0.02, 1]
+  solimp: [0.9, 0.95, 0.01]
+
+# Visual colors for easier observation
+visual:
+  base_link: [0.55, 0.62, 0.70, 1.0]  # steel blue
+  Link1: [0.90, 0.55, 0.20, 1.0]      # orange
+  Link2: [0.25, 0.70, 0.55, 1.0]      # teal
+  Link3: [0.30, 0.35, 0.85, 0.95]     # deep blue, slightly transparent
+
+# Internal ballast to create inertial coupling (helps joints respond to impacts)
+ballast:
+  enabled: true
+  mass: 0.14             # kg
+  pos: [0.0, 0.0, -0.05]  # offset from base_link (m) — bottom (-Z), pendulum effect
+  radius: 0.02           # visual sphere size (m)
+  rgba: [0.92, 0.2, 0.2, 0.6]
+
+# Contact filtering (avoid internal self-collisions)
+contact:
+  internal_bodies: [base_link, Link1, Link2, ballast]
+  outer_body: Link3
+
+
+# =============================================================================
+# PARAMETER TUNING GUIDE
+# =============================================================================
+#
+# JOINT PARAMETERS:
+#   damping: Resistance to rotation velocity
+#     - Lower (0.1-0.5): Inner mechanism moves freely
+#     - Higher (5-50): Joints resist rotation strongly
+#
+#   frictionloss: Static friction at joint
+#     - Lower (0.01-0.1): Smooth rotation
+#     - Higher (0.5-5): Holds position but hard to start moving
+#
+#   armature: Simulated motor rotor inertia
+#     - Lower (0.001-0.01): Quick response
+#     - Higher (0.1-1): Slower, smoother response
+#
+# FRICTION FORMAT: [tangent, torsional, rolling]
+#   - tangent: Sliding friction (most important, typically 0.5-5)
+#   - torsional: Twisting friction around contact normal
+#   - rolling: Rolling resistance
+#
+# SPHERICAL ROBOT BEHAVIOR:
+#   - Outer shell (Link3) should have HIGH friction to grip ground
+#   - Inner mechanism should have LOW joint damping to move freely
+#   - When inner mass shifts, outer shell rolls due to CoM change
+#
+# =============================================================================

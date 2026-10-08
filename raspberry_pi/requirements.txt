@@ -1,0 +1,29 @@
+# 球形机器人树莓派程序依赖
+
+# 串口通信
+pyserial==3.5
+
+# MQTT通信
+paho-mqtt==1.6.1
+
+# 数据处理
+numpy==1.21.0
+
+# JSON处理 (Python内置，但列出以说明)
+# json - 内置模块
+
+# 时间处理 (Python内置，但列出以说明)  
+# time - 内置模块
+
+# 线程处理 (Python内置，但列出以说明)
+# threading - 内置模块
+
+# 日志处理 (Python内置)
+# logging - 内置模块
+
+# 数据可视化 (必需 - 用于Y轴稳定器性能分析)
+matplotlib>=3.5.0
+
+# 可选依赖 (用于高级功能)
+# opencv-python==4.5.0  # 图像处理
+# flask==2.0.0  # Web界面
