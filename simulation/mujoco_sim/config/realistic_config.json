@@ -1,0 +1,9 @@
+{
+  "_comment": "Physically-realistic plant overrides. Masses/COM: documented assumptions (no CAD ground truth yet) — shell 1.2 kg thin shell I=(2/3)mR^2 with R=0.229 -> 0.0419; inner core ~1.0 kg with ballast lowered for ~-0.07 m COM deviation. HARDWARE-CALIBRATED (2026-07-07, from user): force_max = 1.5 kgf = 14.7 N per motor (saturated); metal deep-groove bearings incl. seal drag -> frictionloss 0.01 N*m, damping 0.002 N*m*s/rad per joint (absolute values supersede the old x5 scale). See docs/review/modeling_and_rl_verification.md.",
+  "mass_overrides": {"Link3": 1.2, "base_link": 0.5, "ballast": 0.5},
+  "inertia_overrides": {"Link3": 0.0419},
+  "pos_overrides": {"ballast": [0.0, 0.0, -0.14]},
+  "joint_frictionloss": 0.01,
+  "joint_damping": 0.002,
+  "force_max": 14.7
+}

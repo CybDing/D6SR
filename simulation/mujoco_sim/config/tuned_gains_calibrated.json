@@ -1,0 +1,18 @@
+{
+ "_comment": "coordinate-descent re-tune on calibrated plant, realism=True, cost=2.56",
+ "roll": {
+  "outer_kp": 3.61984,
+  "inner_kp": 0.0019795999999999998,
+  "inner_kd": 0.00025
+ },
+ "pitch": {
+  "outer_kp": 1.80992,
+  "inner_kp": 0.001,
+  "inner_kd": 0.00012372499999999999
+ },
+ "yaw": {
+  "outer_kp": 3.61984,
+  "inner_kp": 0.0031990335999999998,
+  "inner_kd": 3.5e-05
+ }
+}

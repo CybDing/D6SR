@@ -1,0 +1,93 @@
+# === Editor / OS ===
+.vscode/
+.DS_Store
+.claude/
+.claude.md
+
+# Ignore stray claude-generated files but KEEP the project's CLAUDE.md
+claude*
+claude.md
+!CLAUDE.md
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# === Generated media & outputs ===
+*.png
+*.pdf
+*.gif
+*.mp4
+*.mov
+
+# Whitelist showcase assets for README
+!docs/media/
+!docs/media/**
+docs/media/.DS_Store
+
+# === Logs ===
+log.txt
+*.log
+*MUJOCO_LOG.TXT
+
+# === Firmware build artifacts ===
+*.elf
+*.map
+*.bin
+*.hex
+*.o
+*.d
+
+# === Project-specific ===
+tasks.md
+_backup/
+uart_test/
+test_on_pc.py
+test_jacobian/
+
+# === RL checkpoints & training artifacts ===
+simulation/mujoco_sim/rl/checkpoints/*
+# keep only the policy used for the paper figures (Figs 5-7)
+!simulation/mujoco_sim/rl/checkpoints/calib_v7b_nojoint_fs4/
+simulation/mujoco_sim/rl/checkpoints/calib_v7b_nojoint_fs4/*
+!simulation/mujoco_sim/rl/checkpoints/calib_v7b_nojoint_fs4/best.pt
+simulation/mujoco_sim/rl/plots/
+simulation/mujoco_sim/rl/plots_backup/
+
+# === Simulation outputs ===
+simulation/mujoco_sim/videos/
+simulation/mujoco_sim/control/plots/
+simulation/mujoco_sim/plots/
+simulation/mujoco_sim/result/
+
+# paper upload after full modification
+paper/
+
+# confidential review message for author only
+docs/review 
+
+# private modification summary
+modification_summary_zh.md
+
+# local-only analysis (not part of the paper release)
+simulation/mujoco_sim/analysis/eff_inertia.py
+simulation/mujoco_sim/analysis/rolling_singularity.py
+simulation/mujoco_sim/analysis/verify_eff_inertia.py
+simulation/mujoco_sim/analysis/terrain_envelope.py
+simulation/mujoco_sim/analysis/fig_boundary.py
+simulation/mujoco_sim/analysis/fig_terrain_track.py
+simulation/mujoco_sim/config/tuned_gains_r035.json
+simulation/mujoco_sim/config/tuned_gains_r050.json
+tools/check_figure_scale.py
+data/*
+!data/fig9_yaw_hardware.csv
+docs/media/eff_inertia_verification_*.pdf
+docs/media/obs_ablation_r05.pdf
+docs/media/terrain_boundary_three_way.pdf
+docs/media/terrain_stability_envelope.pdf
+docs/media/benchmark_terrain_compare_new.pdf

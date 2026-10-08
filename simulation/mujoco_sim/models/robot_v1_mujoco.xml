@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="robot_v1">
+  <compiler angle="radian" meshdir="../../robot_v1/meshes" />
+  <asset>
+    <mesh name="base_link" file="base_link.STL" />
+    <mesh name="Link1" file="Link1.STL" />
+    <mesh name="Link2" file="Link2.STL" />
+    <mesh name="Link3" file="Link3.STL" />
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" rgba="0.92 0.9 0.86 1.0" pos="0 0 -0.5" friction="1.0 0.02 0.001" condim="6" solref="0.02 1" solimp="0.9 0.95 0.01" contype="1" conaffinity="1" />
+    <body name="base_link" pos="0 0 0.3">
+      <freejoint name="base_freejoint" />
+      <inertial pos="2.32312122628482E-05 -6.93889390390723E-17 0.00149660321293572" mass="0.0881712091132188" diaginertia="0.000483936285114512 0.000280418522330968 0.000484748259250526" />
+      <geom type="mesh" mesh="base_link" rgba="0.55 0.62 0.7 1.0" contype="0" conaffinity="0" />
+      <body name="Link1" pos="3.5945E-05 -0.195 0.0015" euler="0 0 0">
+        <joint name="joint1" type="hinge" limited="false" axis="0 -1 0" damping="0.0005" frictionloss="0.0002" armature="0.0003" />
+        <inertial pos="1.02581138028413E-13 0.195000000000013 7.33484719490702E-14" mass="0.28315394752081" diaginertia="0.00406022994183874 0.000635822702847486 0.00432466337088171" />
+        <geom type="mesh" mesh="Link1" rgba="0.9 0.55 0.2 1.0" contype="0" conaffinity="0" />
+        <body name="Link2" pos="-0.17878 0.195 -0.11393" euler="0 0 -3.1416">
+          <joint name="joint2" type="hinge" limited="false" axis="-0.84332 0 0.53742" damping="0.0005" frictionloss="0.0002" armature="0.0003" />
+          <inertial pos="-0.178782967144676 2.00946898010201E-13 0.113932658438872" mass="0.301442340403242" diaginertia="0.00101703966013663 0.000795350839296753 0.00134656966350589" />
+          <geom type="mesh" mesh="Link2" rgba="0.25 0.7 0.55 1.0" contype="0" conaffinity="0" />
+          <body name="Link3" pos="-0.17878 -0.215 0.11393" euler="0 0 3.1416">
+            <joint name="joint3" type="hinge" limited="false" axis="0.00010218 -1 6.5118E-05" damping="0.0005" frictionloss="0.0002" armature="0.0003" />
+            <inertial pos="-1.07070866200987E-08 -0.215126592531979 -2.89904654076014E-06" mass="0.448110435494101" diaginertia="0.00132675002235673 0.00132701949121583 0.00130432215567495" />
+            <geom type="mesh" mesh="Link3" rgba="0.3 0.35 0.85 0.95" friction="1.0 0.02 0.001" condim="6" solref="0.02 1" solimp="0.9 0.95 0.01" contype="1" conaffinity="1" />
+          </body>
+        </body>
+      </body>
+      <body name="ballast" pos="0.0 0.0 -0.05">
+        <geom type="sphere" size="0.02" mass="0.14" rgba="0.92 0.2 0.2 0.6" contype="0" conaffinity="0" />
+      </body>
+    </body>
+  </worldbody>
+  <option timestep="0.001" gravity="0 0 -9.81" iterations="100" tolerance="1e-6" solver="Newton" integrator="implicitfast" cone="elliptic" />
+</mujoco>
